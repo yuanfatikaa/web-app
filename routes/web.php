@@ -16,12 +16,8 @@ Route::get('/profil', [Web::class, 'profil']);
 Route::get('/profil/{nama}', [Web::class, 'profil']); 
 Route::get('/biodata', [Web::class, 'biodata']);
 
-// Route controller Dashboard & Templating (Sesuai Modul)
+// Route controller Dashboard & Templating 
 Route::get('/dashboard', [DashboardController::class, 'home']);
-Route::get('/gallery', [DashboardController::class, 'gallery']);
-Route::get('/about', [DashboardController::class, 'about']);
-Route::get('/product', [DashboardController::class, 'product']);
-Route::get('/produk/detail/{harga}', [DashboardController::class, 'detailProduct']);
 
 // Route kalkulator umum & segitiga
 Route::get('/kalkulator', [KalkulatorController::class, 'home']);
