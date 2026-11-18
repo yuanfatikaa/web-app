@@ -15,3 +15,4 @@ class EmployeController extends Controller
     return view('tampil_data',$data); 
   } 
 }
+Route::get('/employe',[EmployeController::class, 'index']);
