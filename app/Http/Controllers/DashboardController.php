@@ -6,23 +6,22 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function home()
+    public function home() 
     {
-        return view('home'); 
+        $data['judul'] = 'Laman Home';
+        $data['isi'] = 'Lorem ipsum dolor sit amet';
+        return view('home', $data);
     }
 
-    public function product()
+    public function gallery()
     {
-        return view('product');
-    }
-
-    public function detailProduct($harga)
-    {
-        return view('detail-product', compact('harga'));
+        $data['judul'] = 'Laman Gallery';
+        return view('gallery', $data);
     }
 
     public function about()
     {
-        return view('about');
+        $data['judul'] = 'Laman About';
+        return view('about', $data);
     }
 }
