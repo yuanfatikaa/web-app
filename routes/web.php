@@ -18,6 +18,7 @@ Route::get('/biodata', [Web::class, 'biodata']);
 
 // Route controller Dashboard & Templating 
 Route::get('/dashboard', [DashboardController::class, 'home']);
+Route::get('/gallery',[DashboardController::class, 'gallery']); 
 
 // Route kalkulator umum & segitiga
 Route::get('/kalkulator', [KalkulatorController::class, 'home']);
