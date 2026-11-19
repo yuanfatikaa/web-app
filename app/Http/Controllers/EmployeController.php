@@ -13,6 +13,5 @@ class EmployeController extends Controller
     $data['judul'] = 'CRUD data Pegawai'; 
     $data['employes'] = Employe::all(); 
     return view('tampil_data',$data); 
-  } 
+  }
 }
-Route::get('/employe',[EmployeController::class, 'index']);
