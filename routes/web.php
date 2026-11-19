@@ -5,6 +5,7 @@ use App\Http\Controllers\Web;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\EmployeController;
 
 Route::get('/', function () {
     return "Hallo namaku adalah Laravel, Salam Kenal";
@@ -27,3 +28,5 @@ Route::get('/kalkulator/segitiga', [KalkulatorController::class, 'segitiga']);
 
 // Route Latihan Mahasiswa
 Route::get('/daftar/mahasiswa', [MahasiswaController::class, 'index']);
+
+Route::get('/employe',[EmployeController::class, 'index']); 
