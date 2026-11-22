@@ -32,3 +32,6 @@ Route::get('/daftar/mahasiswa', [MahasiswaController::class, 'index']);
 Route::get('/employe',[EmployeController::class, 'index']); 
 Route::get('/employe/create',[EmployeController::class, 'create']); 
 Route::post('/employe/store',[EmployeController::class, 'store']);
+Route::get('/employe/edit/{employe}',[EmployeController::class, 'show']); 
+Route::put('/employe/{employe}',[EmployeController::class, 'update']);
+Route::delete('/employe/{employe}',[EmployeController::class, 'destroy']); 
