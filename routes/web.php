@@ -30,3 +30,5 @@ Route::get('/kalkulator/segitiga', [KalkulatorController::class, 'segitiga']);
 Route::get('/daftar/mahasiswa', [MahasiswaController::class, 'index']);
 
 Route::get('/employe',[EmployeController::class, 'index']); 
+Route::get('/employe/create',[EmployeController::class, 'create']); 
+Route::post('/employe/store',[EmployeController::class, 'store']);

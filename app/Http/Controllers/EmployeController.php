@@ -1,17 +1,66 @@
-<?php 
- 
-namespace App\Http\Controllers; 
- 
-// load model
-use App\Models\Employe; 
- 
-use Illuminate\Http\Request; 
- 
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Employe;
+use Illuminate\Http\Request;
+
 class EmployeController extends Controller
-{ 
-  public function index(){ 
-    $data['judul'] = 'CRUD data Pegawai'; 
-    $data['employes'] = Employe::all(); 
-    return view('tampil_data',$data); 
-  }
+{
+    public function index()
+    {
+        $data['judul'] = 'CRUD data Pegawai';
+        $data['employes'] = Employe::all();
+        return view('tampil_data', $data);
+    }
+
+    public function create()
+    {
+        $data['judul'] = 'Tambah data Pegawai';
+        return view('tambah_data', $data);
+    }
+
+    public function store(Request $request)
+    {
+        // ambil data di form
+        $employe = new Employe;
+        $employe->id = $request->id;
+        $employe->nama = $request->nama;
+        $employe->alamat = $request->alamat;
+        $employe->gender = $request->gender;
+        $employe->gaji = $request->gaji;
+
+        // simpan dalam database
+        $employe->save();
+
+        // jika berhasil kembali ke tampil data
+        return redirect('/employe');
+    }
+
+    public function edit($id)
+    {
+        $data['judul'] = 'Edit data Pegawai';
+        $data['employe'] = Employe::find($id);
+        return view('edit_data', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $employe = Employe::find($id);
+        $employe->nama = $request->nama;
+        $employe->alamat = $request->alamat;
+        $employe->gender = $request->gender;
+        $employe->gaji = $request->gaji;
+        $employe->save();
+
+        return redirect('/employe');
+    }
+
+    public function destroy($id)
+    {
+        $employe = Employe::find($id);
+        $employe->delete();
+
+        return redirect('/employe');
+    }
 }
