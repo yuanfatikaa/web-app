@@ -6,10 +6,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\EmployeController;
-
-Route::get('/', function () {
-    return "Hallo namaku adalah Laravel, Salam Kenal";
-});
+use App\Http\Controllers\AuthController;
+ 
+return "Hallo namaku adalah Laravel, Salam Kenal";
 
 // Route controller Web
 Route::get('/web', [Web::class, 'home']);
@@ -35,3 +34,14 @@ Route::post('/employe/store',[EmployeController::class, 'store']);
 Route::get('/employe/edit/{employe}',[EmployeController::class, 'show']); 
 Route::put('/employe/{employe}',[EmployeController::class, 'update']);
 Route::delete('/employe/{employe}',[EmployeController::class, 'destroy']); 
+
+// agar langsung masuk login
+Route::get('/', function () {
+    return view('login');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::post('/login', [AuthController::class, 'cek']);
